@@ -1,14 +1,14 @@
 //1st Subsmission:
 /*
     1. Main Menu. 
-        1.1. Show the main menu with all menu options (see Figure 1). checked
-        1.2. Get the player option.                                   checked
+        1.1. Show the main menu with all menu options (see Figure 1).   checked
+        1.2. Get the player option.                                     1/5
         1.3.    If applicable, run the functionality chosen in step 1.2. In case the chosen option is Exit, the player will
-                leave the application                                
-        1.4. Otherwise, go back to step 1.
+                leave the application.                                  checked       
+        1.4. Otherwise, go back to step 1.                              checked
     2. Pieces
         2.1.    Declare the Piece data structure in pieces.h, with a name (character), a board (4×4 array of characters),
-                and two integers rows and cols.
+                and two integers rows and cols.                         
         2.2. Implement in pieces.c the functionalities:
             3.2.1.  void init_piece(Piece *p);, initializes the board characters to '.' of a given piece, and its rows and cols to 0.
             3.2.2.  Piece make_O();, Piece make_I();, Piece make_S();, Piece make_Z();, Piece make_L();,
@@ -22,16 +22,24 @@
                     area.
             3.2.2.  bool is_terminal(char board[MAX_ROWS][MAX_COLUMNS]);, returns true if there is an 'X' (i.e.,
                     blocked cell) in the top-4 rows (i.e., rows ∈ [0, 3]).
-            3.2.3.  void move(char board[MAX_ROWS][MAX_COLUMNS], PieceInfo *piece_info, int option);, should
-                    the at col in piece info, either left or right if the movement is free of collisions.
-            3.2.4.  void rotate(char board[MAX_ROWS][MAX_COLUMNS], PieceInfo *piece_info, int option); should
+            3.2.3.  void rotate(char board[MAX_ROWS][MAX_COLUMNS], PieceInfo *piece_info, int option); should
                     call the rotating functions for the Piece in piece info, either clockwise or counter clockwise, if the
                     rotation is free of collisions.
+            3.2.4. use is collision function to detect when a piece can be moved or rotated
         
     4. Rotation
-            4.1 void rotate_clockwise(Piece *p); and void rotate_counter_clockwise(Piece *p);, rotate
-                clockwise or counter clockwise the board of a given piece, and swaps its rows and cols variables
+        4.1 void rotate_clockwise(Piece *p); and void rotate_counter_clockwise(Piece *p);, rotate
+            clockwise or counter clockwise the board of a given piece, and swaps its rows and cols variables
     5. Move & None
+        5.1 void move(char board[MAX_ROWS][MAX_COLUMNS], PieceInfo *piece_info, int option);, should
+            the at col in piece info, either left or right if the movement is free of collisions.
+    6. Necessary uncategorized conditions
+        6.1. void restart_session_game_state(Session *session);, should call to the initialization of a
+             game state.
+        6.2. void init_session(Session *session);, should set the best score to 0 and restart the game
+             state of the session.
+        6.3. Briefly describe your code with comments below the function names.
+
     6. Quit Game
 */
 
@@ -63,5 +71,7 @@ int main(){
         default:
             break;
         }
-        return 0;
+
+    printf("Good bye!");
+    return 0;
 }
