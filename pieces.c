@@ -1,5 +1,6 @@
 #include "pieces.h"
 
+<<<<<<< HEAD
 void init_piece(Piece *p){
 	for(int c = 0; c <= PIECE_SIZE; c++){
         for(int r = 0; r <= PIECE_SIZE; r++){
@@ -125,3 +126,16 @@ Piece make_T(){
     return piece; 
 }
 
+=======
+// Initializes the board characters to '.' of a given piece , and its rows and cols to 0.
+void init_piece(Piece *p) {
+    Piece piece = {"."};
+    piece.board[0][0];
+}
+
+void rotate_clockwise(Piece *p){
+    int aux = (*p).rows;
+    (*p).rows = (*p).cols;
+    (*p).cols = aux;
+}
+>>>>>>> 2342635838cd5d60e6450c7422b5c61fe2477b97
