@@ -1,6 +1,5 @@
 #include "pieces.h"
 
-<<<<<<< HEAD
 void init_piece(Piece *p){
 	for(int c = 0; c <= PIECE_SIZE; c++){
         for(int r = 0; r <= PIECE_SIZE; r++){
@@ -22,49 +21,35 @@ void print_piece(Piece p){
 }
 
 void rotate_clockwise(Piece *p) {
-    char temp[PIECE_SIZE][PIECE_SIZE];
+    Piece temp;
+    init_piece(&temp);
+    temp.rows = p->cols;
+    temp.cols = p->rows;
+    temp.name = p->name;
 
-    // Perform rotation
     for (int r = 0; r < p->rows; r++) {
         for (int c = 0; c < p->cols; c++) {
-            temp[c][p->rows - 1 - r] = p->board[r][c];
+            temp.board[c][p->rows - 1 - r] = p->board[r][c];
         }
     }
-
-    // Swap rows and cols
-    int temp_size = p->rows;
-    p->rows = p->cols;
-    p->cols = temp_size;
-
-    // Copy back rotated values
-    for (int r = 0; r < p->rows; r++) {
-        for (int c = 0; c < p->cols; c++) {
-            p->board[r][c] = temp[r][c];
-        }
-    }
+    
+    *p = temp;  // Copy temp back to p
 }
 
 void rotate_counter_clockwise(Piece *p) {
-    char temp[PIECE_SIZE][PIECE_SIZE];
+    Piece temp;
+    init_piece(&temp);
+    temp.rows = p->cols;
+    temp.cols = p->rows;
+    temp.name = p->name;
 
-    // Perform rotation
     for (int r = 0; r < p->rows; r++) {
         for (int c = 0; c < p->cols; c++) {
-            temp[p->cols - 1 - c][r] = p->board[r][c];
+            temp.board[p->cols - 1 - c][r] = p->board[r][c];
         }
     }
-
-    // Swap rows and cols
-    int temp_size = p->rows;
-    p->rows = p->cols;
-    p->cols = temp_size;
-
-    // Copy back rotated values
-    for (int r = 0; r < p->rows; r++) {
-        for (int c = 0; c < p->cols; c++) {
-            p->board[r][c] = temp[r][c];
-        }
-    }
+    
+    *p = temp;  // Copy temp back to p
 }
 
 Piece make_O(){
@@ -126,7 +111,6 @@ Piece make_T(){
     return piece; 
 }
 
-=======
 // Initializes the board characters to '.' of a given piece , and its rows and cols to 0.
 void init_piece(Piece *p) {
     Piece piece = {"."};
@@ -138,4 +122,3 @@ void rotate_clockwise(Piece *p){
     (*p).rows = (*p).cols;
     (*p).cols = aux;
 }
->>>>>>> 2342635838cd5d60e6450c7422b5c61fe2477b97
