@@ -126,7 +126,6 @@ Piece make_T(){
     return piece; 
 }
 
-=======
 // Initializes the board characters to '.' of a given piece , and its rows and cols to 0.
 void init_piece(Piece *p) {
     Piece piece = {"."};
